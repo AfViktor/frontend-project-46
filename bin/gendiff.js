@@ -3,9 +3,10 @@ import { Command } from 'commander';
 const program = new Command();
 
 program
-    .name('Compares two configuration files and shows a difference')
+    .name('gendiff')
     .version('0.1.0')
-    .option('-V, --version', 'output the version number')
-    .option('-h, --help', 'output usage information')
+    .description('Compares two configuration files and shows a difference.')
+    // .option('-V, --version', 'output the version number')
+    // .option('-h, --help', 'display help for command')
 
-program.parse();
+program.help();

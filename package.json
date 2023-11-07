@@ -1,0 +1,22 @@
+{
+  "name": "hexlet-name",
+  "version": "1.0.0",
+  "description": "hexlet project #2",
+  "main": "index.js",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "frontend-project-46"
+  },
+  "author": "Viktor Afonkov",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^11.1.0"
+  }
+}

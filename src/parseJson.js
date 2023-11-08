@@ -18,11 +18,8 @@ function genDifferentObj(obj1, obj2) {
     const dataObj1 = Object.entries(obj1);
     const dataObj2 = Object.entries(obj2);
     const str = _.union([...dataObj1, ...dataObj2].flat());
-    const strClone = _.cloneDeep(str);
-    const result = _.sortBy(strClone, (item) => {
-        return item;
-    });
-    return result.join(' ');
+    const strClone = _.cloneDeep(str).sort();
+    return strClone.join(' ');
 }
 
 console.log(genDifferentObj(obj1, obj2));

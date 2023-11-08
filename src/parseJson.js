@@ -2,13 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 
-const filepath1 = path.resolve('files/file1.json');
+const filepath1 = path.resolve('__fixtures__/file1.json');
 const obj1 = JSON.parse(fs.readFileSync(filepath1));
-const filepath2 = path.resolve('files/file2.json');
+const filepath2 = path.resolve('/Users/vik/Documents/GitHub/frontend-project-46/__fixtures__/file2.json');
 const obj2 = JSON.parse(fs.readFileSync(filepath2));
 
-function getPath(path) {
-    return path.resolve(path);
+function getPath(str) {
+    return str.startsWith("/") ? path.resolve(str) : process.cwd(str);
 }
 
 function getData(obj) {

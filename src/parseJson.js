@@ -17,7 +17,12 @@ const obj2 = JSON.parse(fs.readFileSync(filepath2));
 function genDifferentObj(obj1, obj2) {
     const dataObj1 = Object.entries(obj1);
     const dataObj2 = Object.entries(obj2);
-    return _.union([...dataObj1, ...dataObj2].flat());
+    const str = _.union([...dataObj1, ...dataObj2].flat());
+    const strClone = _.cloneDeep(str);
+    const result = _.sortBy(strClone, (item) => {
+        return item;
+    });
+    return result.join(' ');
 }
 
 console.log(genDifferentObj(obj1, obj2));

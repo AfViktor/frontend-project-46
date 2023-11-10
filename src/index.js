@@ -2,8 +2,8 @@ import _ from 'lodash';
 import { getPath, getData } from './parseJson.js';
 
 function getDifferentObject(obj1, obj2) {
-    const allKeys = _.sortBy(_.union(_.keys(obj1), _.keys(obj2)));
-    const result = allKeys.map((key) => {
+    const allKeys = _.sortBy(_.union(_.keys(obj1), _.keys(obj2)))
+    .map((key) => {
         const oldValue = obj1[key];
         const newValue = obj2[key];
         if (!_.has(obj2, key)) {
@@ -11,7 +11,7 @@ function getDifferentObject(obj1, obj2) {
                 action: 'deleted',
                 key,
                 oldValue
-        }
+        };
         };
         if (!_.has(obj1, key)) {
             return {
@@ -37,21 +37,21 @@ function getDifferentObject(obj1, obj2) {
     .map((item) => {
         const result = [];
         if (item.action === 'deleted') {
-            result.push(`- ${item.key}: ${item.oldValue}`);
+            result.push(`  - ${item.key}: ${item.oldValue}\n`);
             }
         if (item.action === 'unchanged') {
-            result.push(`  ${item.key}: ${item.oldValue}`);
+            result.push(`    ${item.key}: ${item.oldValue}\n`);
             }
         if (item.action === 'changed') {
-            result.push(`- ${item.key}: ${item.oldValue}`);
-            result.push(`+ ${item.key}: ${item.newValue}`);
+            result.push(`  - ${item.key}: ${item.oldValue}\n`);
+            result.push(`  + ${item.key}: ${item.newValue}\n`);
             }
         if (item.action === 'added') {
-            result.push(`+ ${item.key}: ${item.newValue}`);
+            result.push(`  + ${item.key}: ${item.newValue}`);
             }
             return result;
         });
-    return result.flat();
+    return `{\n${allKeys.flat().join('')}\n}`;
 };
 
 function genDiff(filepath1, filepath2) {

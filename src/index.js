@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { getPath, getData } from './parseJson.js';
+import { getData } from './parseJson.js';
 
 function getDifferentObject(obj1, obj2) {
     const allKeys = _.sortBy(_.union(_.keys(obj1), _.keys(obj2)))
@@ -55,8 +55,8 @@ function getDifferentObject(obj1, obj2) {
 };
 
 function genDiff(filepath1, filepath2) {
-    const dataFile1 = getData(getPath(filepath1));
-    const dataFile2 = getData(getPath(filepath2));
+    const dataFile1 = getData(filepath1);
+    const dataFile2 = getData(filepath2);
     const result = getDifferentObject(dataFile1, dataFile2);
     return result;
 }

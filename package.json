@@ -18,7 +18,9 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^11.1.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -28,6 +30,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
     "prettier": "3.0.3"
   }
 }

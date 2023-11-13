@@ -13,4 +13,4 @@ function getData(str) {
   return JSON.parse(fs.readFileSync(data));
 }
 
-export default { getData };
+export default getData;

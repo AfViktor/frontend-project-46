@@ -14,6 +14,7 @@
     "semi": ["error", "always"],
     "no-console": "off",
     "import/extensions": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+	"no-undef": "off"
   }
 }

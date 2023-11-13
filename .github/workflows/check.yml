@@ -16,6 +16,7 @@ jobs:
       # ls -la выведет содержимое текущего репозитория
       - run: make install
       - run: make lint
+      - run: npm run test
       - name: Test & publish code coverage
         # Publish code coverage on Code Climate
         # https://github.com/paambaati/codeclimate-action

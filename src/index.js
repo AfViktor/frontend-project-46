@@ -10,14 +10,14 @@ function getDifferentObject(obj1, obj2) {
             return {
                 action: 'deleted',
                 key,
-                oldValue
+                oldValue,
         };
         };
         if (!_.has(obj1, key)) {
             return {
                 action: 'added',
                 key,
-                newValue
+                newValue,
             };
         };
         if (oldValue !== newValue) {
@@ -25,13 +25,13 @@ function getDifferentObject(obj1, obj2) {
                 action: 'changed',
                 key,
                 oldValue,
-                newValue
+                newValue,
             };
         };
         return {
             action: 'unchanged',
             key,
-            oldValue
+            oldValue,
         };
     })
     .map((item) => {

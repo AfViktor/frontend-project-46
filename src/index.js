@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { getData } from './parseJson.js';
+import getData from './parseJson.js';
 
 function getDifferentObject(obj1, obj2) {
   const allKeys = _.sortBy(_.union(_.keys(obj1), _.keys(obj2)))

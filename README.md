@@ -9,3 +9,6 @@
 
 Пример работы сравнения плоских файлов форматов json и yml/yaml
 https://asciinema.org/connect/efd49a63-3389-4d3d-8813-8ff7195a8ab7
+
+Пример работы сравнения файлов со вложенной структурой форматов json и yml/yaml
+https://asciinema.org/a/vN7JtyAABXrIJyuyg5cqWlP2q

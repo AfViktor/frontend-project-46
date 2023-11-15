@@ -1,7 +1,7 @@
 import getStylish from "./stylish.js";
 
 const getFormatName = (formatName) => {
-	if (!formatName) {
+	if (formatName === undefined) {
 		return 'stylish';
 	}
 	return formatName;

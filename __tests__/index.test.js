@@ -19,5 +19,5 @@ console.log(expectedFile);
 
 test('gendiff test', () => {
 	const result = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'));
-	expect(makeFormat(result)).toEqual(expectedFile);
+	expect(result).toEqual(expectedFile);
 });

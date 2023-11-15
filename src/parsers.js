@@ -3,7 +3,6 @@ import path from 'path';
 import _ from 'lodash';
 import yaml from 'js-yaml';
 
-
 function getData(str) {
   let data = {};
 	const dirName = process.cwd(str);

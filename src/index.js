@@ -20,6 +20,13 @@ function getDifferentObject(obj1, obj2) {
           newValue,
         };
       }
+			if (_.isObject(oldValue) && _.isObject(newValue)) {
+				return {
+					action: 'nested',
+					key,
+					children: getDifferentObject(oldValue, newValue),
+				};
+			}
       if (oldValue !== newValue) {
         return {
           action: 'changed',
@@ -34,7 +41,22 @@ function getDifferentObject(obj1, obj2) {
         oldValue,
       };
     });
-    // .map((item) => {
+    
+  return allKeys;
+}
+
+function genDiff(filepath1, filepath2) {
+  const dataFile1 = getData(filepath1);
+  const dataFile2 = getData(filepath2);
+  const result = getDifferentObject(dataFile1, dataFile2);
+  return result;
+}
+
+export default genDiff;
+
+// return `{\n${allKeys.flat().join('')}\n}`;
+
+// .map((item) => {
     //   const result = [];
     //   if (item.action === 'deleted') {
     //     result.push(`  - ${item.key}: ${item.oldValue}\n`);
@@ -51,16 +73,3 @@ function getDifferentObject(obj1, obj2) {
     //   }
     //   return result;
     // });
-  return allKeys;
-}
-
-function genDiff(filepath1, filepath2) {
-  const dataFile1 = getData(filepath1);
-  const dataFile2 = getData(filepath2);
-  const result = getDifferentObject(dataFile1, dataFile2);
-  return result;
-}
-
-export default genDiff;
-
-// return `{\n${allKeys.flat().join('')}\n}`;

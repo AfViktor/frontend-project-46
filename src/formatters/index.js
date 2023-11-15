@@ -4,6 +4,7 @@ const getFormatName = (formatName) => {
 	if (!formatName) {
 		return 'stylish';
 	}
+	return formatName;
 };
 
 export default function makeFormat (tree, formatName) {

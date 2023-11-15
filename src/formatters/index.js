@@ -1,4 +1,3 @@
-import genDiff from "../index.js";
 import getStylish from "./stylish.js";
 
 const getFormatName = (formatName) => {
@@ -10,6 +9,7 @@ const getFormatName = (formatName) => {
 export default function makeFormat (tree, formatName) {
 	const format = getFormatName(formatName);
 	if (format === 'stylish') {
-		return getStylish(tree);
+		const result = getStylish(tree);
+		return result;
 	}
 }

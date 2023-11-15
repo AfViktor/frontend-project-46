@@ -33,25 +33,25 @@ function getDifferentObject(obj1, obj2) {
         key,
         oldValue,
       };
-    })
-    .map((item) => {
-      const result = [];
-      if (item.action === 'deleted') {
-        result.push(`  - ${item.key}: ${item.oldValue}\n`);
-      }
-      if (item.action === 'unchanged') {
-        result.push(`    ${item.key}: ${item.oldValue}\n`);
-      }
-      if (item.action === 'changed') {
-        result.push(`  - ${item.key}: ${item.oldValue}\n`);
-        result.push(`  + ${item.key}: ${item.newValue}\n`);
-      }
-      if (item.action === 'added') {
-        result.push(`  + ${item.key}: ${item.newValue}`);
-      }
-      return result;
     });
-  return `{\n${allKeys.flat().join('')}\n}`;
+    // .map((item) => {
+    //   const result = [];
+    //   if (item.action === 'deleted') {
+    //     result.push(`  - ${item.key}: ${item.oldValue}\n`);
+    //   }
+    //   if (item.action === 'unchanged') {
+    //     result.push(`    ${item.key}: ${item.oldValue}\n`);
+    //   }
+    //   if (item.action === 'changed') {
+    //     result.push(`  - ${item.key}: ${item.oldValue}\n`);
+    //     result.push(`  + ${item.key}: ${item.newValue}\n`);
+    //   }
+    //   if (item.action === 'added') {
+    //     result.push(`  + ${item.key}: ${item.newValue}`);
+    //   }
+    //   return result;
+    // });
+  return allKeys;
 }
 
 function genDiff(filepath1, filepath2) {
@@ -62,3 +62,5 @@ function genDiff(filepath1, filepath2) {
 }
 
 export default genDiff;
+
+// return `{\n${allKeys.flat().join('')}\n}`;

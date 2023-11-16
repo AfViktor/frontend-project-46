@@ -7,8 +7,5 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6cd37102cff86db6482c/test_coverage)](https://codeclimate.com/github/AfViktor/frontend-project-46/test_coverage)
 
-Пример работы сравнения плоских файлов форматов json и yml/yaml
-https://asciinema.org/connect/efd49a63-3389-4d3d-8813-8ff7195a8ab7
-
-Пример работы сравнения файлов со вложенной структурой форматов json и yml/yaml
-https://asciinema.org/a/vN7JtyAABXrIJyuyg5cqWlP2q
+Пример работы программы со всеми форматами и структурами файлов:
+https://asciinema.org/a/b5180i74CyL72uqIdPtPTHw5q

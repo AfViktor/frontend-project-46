@@ -1,13 +1,13 @@
-import getStylish from './stylish.js';
-import getPlain from './plain.js';
+import getStylish from "./stylish.js";
+import getPlain from "./plain.js";
 
 export default function makeFormat(tree, formatName) {
   switch (formatName) {
-		case 'stylish':
-			return getStylish(tree);
-		case 'plain':
-			return getPlain(tree);
-		case 'json':
-			return JSON.stringify(tree);
-	}
+    case "stylish":
+      return getStylish(tree);
+    case "plain":
+      return getPlain(tree);
+    case "json":
+      return JSON.stringify(tree);
+  }
 }

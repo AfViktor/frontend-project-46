@@ -3,21 +3,20 @@ import path from 'path';
 import _ from 'lodash';
 import yaml from 'js-yaml';
 
-function getData(str) {
-  let data = {};
+function getPath(str) {
+	let result;
 	const dirName = process.cwd(str);
-	if (str.endsWith('.json')) {
-		str.startsWith('/') ? data = path.resolve(str) : data = path.resolve(dirName, str);
+	str.startsWith('/') ? result = path.resolve(str) : result = path.resolve(dirName, str);
+	return result;
+}
+
+function getData (data) {
+	if (data.endsWith('.json')) {
     return JSON.parse(fs.readFileSync(data));
   }
-	if (str.endsWith('.yml') || str.endsWith('.yaml')) {
-		str.startsWith('/') ? data = path.resolve(str) : data = path.resolve(dirName, str);
+	if (data.endsWith('.yml') || str.endsWith('.yaml')) {
     return yaml.load(fs.readFileSync(data));
 	}
 }
 
-export default getData;
-
-// gendiff __fixtures__/file1.yml __fixtures__/file2.yml
-// gendiff __fixtures__/file1.json __fixtures__/file2.json
-
+export { getData, getPath };

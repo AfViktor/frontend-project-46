@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from "lodash";
 
 export default function getDifferentObject(obj1, obj2) {
   const allKeys = _.sortBy(_.union(_.keys(obj1), _.keys(obj2))).map((key) => {
@@ -6,35 +6,35 @@ export default function getDifferentObject(obj1, obj2) {
     const newValue = obj2[key];
     if (!_.has(obj2, key)) {
       return {
-        action: 'deleted',
+        action: "deleted",
         key,
         oldValue,
       };
     }
     if (!_.has(obj1, key)) {
       return {
-        action: 'added',
+        action: "added",
         key,
         newValue,
       };
     }
     if (_.isObject(oldValue) && _.isObject(newValue)) {
       return {
-        action: 'nested',
+        action: "nested",
         key,
         children: getDifferentObject(oldValue, newValue),
       };
     }
     if (oldValue !== newValue) {
       return {
-        action: 'changed',
+        action: "changed",
         key,
         oldValue,
         newValue,
       };
     }
     return {
-      action: 'unchanged',
+      action: "unchanged",
       key,
       oldValue,
     };

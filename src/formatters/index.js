@@ -9,5 +9,7 @@ export default function makeFormat(tree, formatName = 'stylish') {
       return getPlain(tree);
     case 'json':
       return JSON.stringify(tree);
+    default:
+      throw new Error('Output format is not correct');
   }
 }

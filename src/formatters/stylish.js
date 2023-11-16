@@ -22,9 +22,7 @@ function stringify(value, level) {
     if (!_.isObject(currentValue)) {
       return `${currentValue}`;
     }
-    const lines = Object.entries(currentValue).map(
-      ([key, val]) => `${getSpace(depth + 1, data.space)}${key}: ${iter(val, depth + 1)}`
-    );
+    const lines = Object.entries(currentValue).map(([key, val]) => `${getSpace(depth + 1, data.space)}${key}: ${iter(val, depth + 1)}`);
     return ['{', ...lines, `${getSpace(depth + 1)}}`].join('\n');
   }
   return iter(value, level);
@@ -41,12 +39,7 @@ export default function getStylish(tree) {
         case 'nested':
           return `${getSpace(depth, data.space)}${key.key}: ${iter(key.children, depth + 1)}`;
         case 'changed':
-          return [
-            `${getSpace(depth, data.deleted)}${key.key}: ${stringify(key.oldValue, depth)}\n${getSpace(
-              depth,
-              data.added
-            )}${key.key}: ${stringify(key.newValue, depth)}`,
-          ];
+          return [`${getSpace(depth, data.deleted)}${key.key}: ${stringify(key.oldValue, depth)}\n${getSpace(depth, data.added)}${key.key}: ${stringify(key.newValue, depth)}`];
         default:
           return `${getSpace(depth, data.space)}${key.key}: ${stringify(key.oldValue, depth)}`;
       }

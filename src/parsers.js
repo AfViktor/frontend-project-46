@@ -7,6 +7,8 @@ function parse(data, format) {
     case 'yml':
     case 'yaml':
       return yaml.load(data);
+    default:
+      throw new Error(`Format file ${data} is not correct`);
   }
 }
 

@@ -29,8 +29,8 @@ function stringify(value, level) {
 }
 
 export default function getStylish(tree) {
-  const iter = (tree, depth) => {
-    const result = tree.map((key) => {
+  const iter = (object, depth) => {
+    const result = object.map((key) => {
       switch (key.action) {
         case 'deleted':
           return `${getSpace(depth, data.deleted)}${key.key}: ${stringify(key.oldValue, depth)}`;

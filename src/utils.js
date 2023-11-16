@@ -1,6 +1,18 @@
 import _ from "lodash";
+import path from "path";
+import fs from "fs";
 
-export default function getDifferentObject(obj1, obj2) {
+function readFile(filePath) {
+  const dirName = process.cwd(filePath);
+  const fullPath = path.resolve(dirName, filePath);
+  return fs.readFileSync(fullPath, 'utf-8');
+}
+
+function getExtension (filename) {
+  return filename.split().at(-1);
+}
+
+function getDifferentObject(obj1, obj2) {
   const allKeys = _.sortBy(_.union(_.keys(obj1), _.keys(obj2))).map((key) => {
     const oldValue = obj1[key];
     const newValue = obj2[key];
@@ -41,3 +53,5 @@ export default function getDifferentObject(obj1, obj2) {
   });
   return allKeys;
 }
+
+export { readFile, getDifferentObject, getExtension };

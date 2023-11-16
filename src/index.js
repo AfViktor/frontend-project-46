@@ -1,13 +1,18 @@
-import getDifferentObject from "../src/utils.js";
+import { getDifferentObject } from "../src/utils.js";
 import makeFormat from "../src/formatters/index.js";
-import { getData, getPath } from "./parsers.js";
+import { readFile, getExtension } from "../src/utils.js";
+import parse from "./parsers.js";
 
 function genDiff(filepath1, filepath2, format = "stylish") {
-  const path1 = getPath(filepath1);
-  const path2 = getPath(filepath2);
-  const dataFile1 = getData(path1);
-  const dataFile2 = getData(path2);
-  const dataDiff = getDifferentObject(dataFile1, dataFile2);
+  const dataFile1 = readFile(filepath1);
+  console.log(dataFile1);
+  const dataFile2 = readFile(filepath2);
+  const extension1 = getExtension(filepath1);
+  console.log(extension1);
+  const extension2 = getExtension(filepath2);
+  const parseFile1 = parse(dataFile1, extension1);
+  const parseFile2 = parse(dataFile2, extension2);
+  const dataDiff = getDifferentObject(parseFile1, parseFile2);
   const result = makeFormat(dataDiff, format);
   return result;
 }

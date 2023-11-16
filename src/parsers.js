@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 
-function parse (data, format) {
+function parse(data, format) {
   switch (format) {
     case 'json':
       return JSON.parse(data);

@@ -1,6 +1,6 @@
-import _ from "lodash";
-import path from "path";
-import fs from "fs";
+import _ from 'lodash';
+import path from 'path';
+import fs from 'fs';
 
 function readFile(filePath) {
   const dirName = process.cwd(filePath);
@@ -8,7 +8,7 @@ function readFile(filePath) {
   return fs.readFileSync(fullPath, 'utf-8');
 }
 
-function getExtension (filename) {
+function getExtension(filename) {
   const result = filename.split('.');
   return result.at(-1);
 }
@@ -19,35 +19,35 @@ function getDifferentObject(obj1, obj2) {
     const newValue = obj2[key];
     if (!_.has(obj2, key)) {
       return {
-        action: "deleted",
+        action: 'deleted',
         key,
         oldValue,
       };
     }
     if (!_.has(obj1, key)) {
       return {
-        action: "added",
+        action: 'added',
         key,
         newValue,
       };
     }
     if (_.isObject(oldValue) && _.isObject(newValue)) {
       return {
-        action: "nested",
+        action: 'nested',
         key,
         children: getDifferentObject(oldValue, newValue),
       };
     }
     if (oldValue !== newValue) {
       return {
-        action: "changed",
+        action: 'changed',
         key,
         oldValue,
         newValue,
       };
     }
     return {
-      action: "unchanged",
+      action: 'unchanged',
       key,
       oldValue,
     };

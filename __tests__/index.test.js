@@ -1,14 +1,14 @@
-import genDiff from "../src/index.js";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import path from "path";
-import fs from "fs";
+import genDiff from '../src/index.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import path from 'path';
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const getFixturePath = (filename) => path.join(__dirname, "..", "__fixtures__", filename);
-const readFixture = (filename) => fs.readFileSync(getFixturePath(filename), "utf-8");
+const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+const readFixture = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
 test.each([
   ['json', 'stylish', readFixture('expected_file_stylish.txt')],
@@ -16,7 +16,7 @@ test.each([
   ['json', 'plain', readFixture('expected_file_plain.txt')],
   ['yml', 'plain', readFixture('expected_file_plain.txt')],
   ['json', 'json', readFixture('expected_file_json.txt')],
-  ['yml', 'json', readFixture('expected_file_json.txt')]
+  ['yml', 'json', readFixture('expected_file_json.txt')],
 ])('all test gendiff', (extension, format, expected) => {
   expect(genDiff(getFixturePath(`file1.${extension}`), getFixturePath(`file2.${extension}`), format)).toEqual(expected);
 });
